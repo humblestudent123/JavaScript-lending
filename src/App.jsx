@@ -1,27 +1,74 @@
 
+
+import React from 'react';
 import './App.css';
+import Home from "./pages/FirstPage";
+import Game from "./pages/SecondPage";
+import { Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 function App() {
-  return (
-    <div className="main">
-        
-        <div className="h1">
-          <h1 className='zagolov' id='zagolov1'>JS Forge</h1>
+    const navigate = useNavigate();
+    const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
-             <nav className="tabs">
-              <a href="#install">Установка</a>
-              <a href="#usage">Использование</a>
-              <a href="#faq">FAQ</a>
-            </nav>
-        </div>
+
+
+  
+
+  return (
+    
+
+
+    
+
+
+
+    
+    <div className="main">
+      <div className="h1">
+        <h1 className='zagolov' id='zagolov1'>JS Forge</h1>
+
+        <nav className="tabs">
+          <a href="#install" onClick={(e) => { e.preventDefault(); scrollToSection('install'); }}>Установка</a>
+          <a href="#usage" onClick={(e) => { e.preventDefault(); scrollToSection('usage'); }}>Использование</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}>FAQ</a>
+        </nav>
+     
+
 
 
   <div className="body">
-    
+        <Routes>
+          <Route path="/" element={(
+            <>
+            
+              {/* здесь оставляем все твои секции, включая prestart */}
+              <section id='prestart'>
+                <h2>От нуля к интерактивности: твой первый код</h2>                
+                <div id='start'>
+                  <button id='start-button' onClick={() => navigate('/SecondPage')}>
+                    Начать
+                  </button>
+                </div>
+              </section>
+              {/* остальные секции */}
+            </>
+          )} />
+
+          <Route path="/FirstPage" element={<Home />} />
+          <Route path="/SecondPage" element={<Game />} />
+        </Routes>
+      </div>
 
     <div className='intro'>
   <section id="install">
-  <h2>Установка JavaScript</h2>
+  <h2 id='text'>Установка JavaScript</h2>
     <p>
       JavaScript — это язык, который уже встроен в браузер. Чтобы начать обучение, тебе не нужно ничего устанавливать.
     </p>
@@ -37,7 +84,7 @@ function App() {
       </ul>
 
       <p>Советую именно VS Code так как, он имеет внушительный инструментарий доступный прямо из коробки, и благодоря большому колличеству расширений сделает написание кода быстрым и приятным</p>
-      <a id="button" href="https://code.visualstudio.com/download">Сыллка на VsCode</a>
+      <a id="button" href="https://code.visualstudio.com/download">Ссылка на VsCode</a>
     </div>
 
   </section>
@@ -58,22 +105,23 @@ function App() {
 
 
 
-
-<section id='prestart'>
-  <h2>От нуля к интерактивности: твой первый код</h2>
-
-  <div id='start'>
-    <a id='start-button' href=''>Начать</a>
-  </div>
-</section>
+ 
 
 
 
 
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p>все вопрсы оставляйте на почту  example@mail.com</p>
-  </section>
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 <section id="reviews">
@@ -107,7 +155,10 @@ function App() {
 </section>
 
 
-
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p>все вопрсы оставляйте на почту  example@mail.com</p>
+  </section>
 
     </div>
   </div>
