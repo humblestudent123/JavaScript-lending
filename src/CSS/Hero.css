@@ -1,0 +1,73 @@
+/* Hero.css */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 60px;
+  background-color: #fff;
+  position: relative;
+}
+
+.hero__content {
+  max-width: 500px;
+}
+
+.hero__title {
+  font-family: 'Orbitron', sans-serif; /* футуристичный шрифт */
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero__text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.hero__button-primary {
+  background-color: #2f4aff;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.hero__button-secondary {
+  background: transparent;
+  border: 2px solid #2f4aff;
+  color: #2f4aff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero__cards {
+  display: flex;
+  gap: 24px;
+}
+
+.hero__image {
+  position: relative;
+  max-width: 400px;
+}
+
+
+.hero__image img {
+  width: 100%;       /* растягиваем по ширине родителя */
+  height: 800px;      /* сохраняем пропорции */
+  display: block;    /* убираем лишние пробелы под изображением */
+  border-radius: 12px; /* если хочешь скругление */
+  object-fit: cover; /* чтобы картинка не искажалась */
+  max-width: 700px;  /* максимальная ширина, чтобы не выходила за блок */
+}
